@@ -1,137 +1,157 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
-
-body {
-  font-family: "Poppins", sans-serif;
-  font-size: 18px; /* Increased base font size */
-  color: #fff;
-  text-align: center;
-  overflow: hidden;
+/* Reset default margin and padding */
+body,
+h2,
+h4,
+ul,
+footer {
+  margin: 0;
+  padding: 0;
+  background-color: #333778;
+  color: white;
 }
 
-/* Animated Gradient Background */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Fixed Header */
+.text-center {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  animation: bgAnimation 6s infinite alternate;
-  z-index: -1;
+  max-width: 500px; /* Adjust as needed */
+  margin: 0 auto; /* Centers the block element */
+  margin-top: 23px;
+  color: white;
+  padding: 15px 0;
+  padding-top: 24px;
+  text-align: center;
+  border-radius: 5px;
 }
 
-@keyframes bgAnimation {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(30deg);
-  }
-}
-
+/* Main Container */
 .container {
   max-width: 500px;
-  margin-top: 50px;
-  animation: fadeIn 1s ease-in-out;
+  margin-top: 60px;
+  padding-top: 100px; /* Space for fixed header */
+  padding-bottom: 100px; /* Space for footer */
+  display: block;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Input Container */
+.input-container {
+  background: white;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-/* Glassmorphism Card */
-.card {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-  padding: 25px; /* Slightly increased padding */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.3s ease;
+/* Form Control Styles */
+.form-control {
+  border: 2px solid #685eb1;
+  border-radius: 8px;
+  transition: border-color 0.3s ease-in-out;
 }
 
-.card:hover {
-  /* transform: translateY(-5px); */
-  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.25);
+.form-control:focus {
+  border-color: rgb(151, 130, 130);
+  box-shadow: 0px 0px 8px rgba(78, 12, 12, 0.6);
 }
 
-/* Custom Neon Button */
+/* Category List */
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category-option {
+  background: #e9ecef;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.category-option input {
+  margin-right: 5px;
+}
+
+/* Button Customization */
 .btn-custom {
-  background-color: #000f62;
+  background-color: #23648d;
   color: white;
-  border-radius: 30px;
-  padding: 14px; /* Slightly increased padding */
-  font-size: 20px; /* Increased font size */
   font-weight: bold;
-  box-shadow: 0px 0px 12px rgba(255, 111, 97, 0.6);
-  transition: all 0.3s ease-in-out;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
 
 .btn-custom:hover {
-  transform: scale(1);
-  background-color: #073747;
-  box-shadow: 0px 0px 15px rgba(105, 67, 64, 0.9);
+  background-color: #3f4287;
 }
-
-/* Headings */
-h2 {
-  font-size: 28px; /* Increased font size */
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #fff;
+.expense-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
 }
-
-h4 {
-  font-size: 24px; /* Increased font size */
-  font-weight: 600;
-  color: #eee;
+.expense-name {
+  flex-grow: 1; /* Allow name to take available space */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* Adds "..." if the text is too long */
+  max-width: 200px; /* Adjust width as needed */
 }
-
-/* Expense List Styling */
-.list-group-item {
+/* Expense Item Styles */
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: #fff;
-  font-size: 20px; /* Increased font size */
   border-radius: 10px;
-  padding: 18px; /* Increased padding */
+  padding: 12px;
   margin: 5px 0;
-  transition: transform 0.2s, background 0.3s;
+  transition: 0.3s;
 }
 
-.list-group-item:hover {
-  transform: translateX(2px);
+.expense-item:hover {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Input and Select Box */
-input,
-select {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  font-size: 18px; /* Increased font size */
-  border-radius: 10px;
-  padding: 12px; /* Slightly increased padding */
-  outline: none;
-  transition: all 0.3s;
+.expense-actions {
+  display: flex;
+  gap: 10px;
 }
 
-input::placeholder {
-  color: #ccc;
+.edit-btn,
+.delete-btn {
+  color: white;
+  border-radius: 5px;
+  padding: 2px 12px;
+  transition: 0.3s ease-in-out;
+  width: 80px; /* Fixed button width */
+  text-align: center;
 }
 
-input:focus,
-select:focus {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: #72cece;
-  box-shadow: 0px 0px 8px rgba(44, 162, 202, 0.8);
+.edit-btn {
+  background: #0a486b;
+}
+
+.edit-btn:hover {
+  background: #3f4287;
+}
+
+.delete-btn {
+  background: #541212;
+}
+
+.delete-btn:hover {
+  background: #3f4287;
+}
+
+/* Footer Styles */
+.footer {
+  text-align: center;
+  background-color: #353e48;
+  color: white;
+  padding: 15px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+  /* box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); */
 }

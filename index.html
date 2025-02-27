@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 
 <head>
   <meta charset="UTF-8">
@@ -10,31 +10,58 @@
 </head>
 
 <body>
+  <!-- Fixed Header -->
+  <!-- <header class="fixed-header"> -->
+  <h2 class="mb-4 text-center">💰 Expense Tracker</h2>
+  <!-- </header> -->
+
+  <!-- Main Content -->
   <div class="container">
-    <h2 class="mb-4">💰 Expense Tracker</h2>
-    <div class="card">
-      <div class="mb-3">
-        <input type="text" id="expense-name" class="form-control" placeholder="Expense Name">
+    <!-- Input Section -->
+    <div class="input-container">
+      <div class="card p-3">
+        <div class="mb-3">
+          <input type="text" id="expense-name" class="form-control" placeholder="Expense Name" maxlength="20">
+        </div>
+        <div class="mb-3">
+          <input type="number" id="expense-amount" class="form-control" placeholder="Amount">
+        </div>
+        <div class="mb-3">
+          <label class="form-label " style="font-size: 18px;"><strong>Select Category</strong></label>
+          <div class="category-list">
+            <label class="category-option"><input type="radio" name="expense-category" value="Food"> 🍔 Food</label>
+            <label class="category-option"><input type="radio" name="expense-category" value="Transport"> 🚗
+              Transport</label>
+            <label class="category-option"><input type="radio" name="expense-category" value="Shopping"> 🛍️
+              Shopping</label>
+            <label class="category-option"><input type="radio" name="expense-category" value="Bills"> 📄 Bills</label>
+            <label class="category-option"><input type="radio" name="expense-category" value="Other"> 🔹 Other</label>
+          </div>
+        </div>
+        <button class="btn btn-custom w-100" onclick="addExpense()">➕ Add Expense</button>
       </div>
-      <div class="mb-3">
-        <input type="number" id="expense-amount" class="form-control" placeholder="Amount">
-      </div>
-      <div class="mb-3">
-        <label for="expense-category" class="form-label">Select Category</label>
-        <select id="expense-category" class="form-control">
-          <option value="Food">🍔 Food</option>
-          <option value="Transport">🚗 Transport</option>
-          <option value="Shopping">🛍️ Shopping</option>
-          <option value="Bills">📄 Bills</option>
-          <option value="Other">🔹 Other</option>
-        </select>
-      </div>
-      <button class="btn btn-custom w-100" onclick="addExpense()">➕ Add Expense</button>
     </div>
-    <h4 class="mt-4">📋 Expenses</h4>
-    <ul id="expense-list" class="list-group"></ul>
+
+    <!-- Expense List -->
+    <ul id="expense-list" class="list-group">
+      <li class="expense-item">
+        <span class="expense-name">Long Expense Name Example</span>
+        <div class="expense-actions">
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </div>
+      </li>
+    </ul>
+
+
+    <!-- Total Amount -->
     <h4 class="mt-3">💲 Total: <span id="total-amount">0</span> PKR</h4>
   </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 Expense Tracker | Made with ❤️ by Shumaila Saman
+  </footer>
 
   <script src="script.js"></script>
 </body>
